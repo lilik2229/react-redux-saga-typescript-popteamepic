@@ -2,14 +2,15 @@ import * as React from 'react';
 
 interface IButtonProps {
   children?: React.ReactNode;
-  onhandleClick: (str: string) => any;
+  onhandleClick: () => any;
+  isPopTeamEpic: boolean;
 }
 
 const Button: React.SFC<IButtonProps> = (props) => {
   const children = props.children;
 
   const handleAddWord = () => {
-    props.onhandleClick('pop');
+    props.onhandleClick();
   };
 
   return (
