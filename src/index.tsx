@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSageMiddleware from 'redux-saga';
+import { BrowserRouter, Route } from 'react-router-dom';
 import App from './components/App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -35,8 +36,11 @@ sagaMiddleware.run(root)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
-  </Provider>,
+    <BrowserRouter>
+      <Route path="/" component={App} />
+    </BrowserRouter>
+  </Provider>
+  ,
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
